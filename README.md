@@ -13,5 +13,7 @@ The goals of this project are to:
 ## Technologies Used:
 
     * **NLP**: Spacy, Textacy, Linear Dirichlet Allocation, Latent Semantic Analysis, non-Negative Matrix Factorization
+    
     * **Modeling**: scikit-learn, statsmodels
+    
     * **Data Handling** pandas, PostgreSQL
