@@ -4,4 +4,14 @@ What makes a useful Yelp review? What characteristics do reviews have that make 
 
 ## Goals
 
-The goals of this project are to 1) predict the usefulness of reviews on Yelp and 2) to predict the usefulness of individual users' reviews based on their review history.
+The goals of this project are to:
+
+1) predict the usefulness of Yelp reviews as a classification problem
+2) quantify usefulness of Yelp reviews on a numeric/percentage scale and predict this 'Usefulness' score as a regression problem
+3) apply models trained on Yelp review text on review text from other sites and evaluate their performance
+
+## Technologies Used:
+
+    * **NLP**: Spacy, Textacy, Linear Dirichlet Allocation, Latent Semantic Analysis, non-Negative Matrix Factorization
+    * **Modeling**: scikit-learn, statsmodels
+    * **Data Handling** pandas, PostgreSQL
