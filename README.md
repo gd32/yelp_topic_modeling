@@ -10,10 +10,10 @@ The goals of this project are to:
 2) quantify usefulness of Yelp reviews on a numeric/percentage scale and predict this 'Usefulness' score as a regression problem
 3) apply models trained on Yelp review text on review text from other sites and evaluate their performance
 
-## Technologies Used:
+## Technologies Used
 
-    * **NLP**: Spacy, Textacy, Linear Dirichlet Allocation, Latent Semantic Analysis, non-Negative Matrix Factorization
+* **NLP**: Spacy, Textacy, Linear Dirichlet Allocation, Latent Semantic Analysis, non-Negative Matrix Factorization
     
-    * **Modeling**: scikit-learn, statsmodels
+* **Modeling**: scikit-learn, statsmodels
     
-    * **Data Handling** pandas, PostgreSQL
+* **Data Handling** pandas, PostgreSQL
