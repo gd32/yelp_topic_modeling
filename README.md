@@ -9,7 +9,7 @@ The primary goals of this project are to:
 1) predict the usefulness of Yelp reviews as a classification problem
 2) quantify usefulness of Yelp reviews on a numeric/percentage scale and predict this 'Usefulness' score as a regression problem
 
-I would also like to explore:
+I would also like to explore as secondary goals:
 
 1) Application and evaluation of models trained on Yelp review text on review text from other sites 
 2) Assessment of reviews written by prolific Yelp users to predict usefulness of reviews on a per-user basis.
