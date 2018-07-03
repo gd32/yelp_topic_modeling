@@ -1,0 +1,21 @@
+- Do you have data fully in hand and if not, what blockers are you facing?
+
+  Data is acquired and located on the PostgreSQL server. I have a text file of alternate reviews (for Amazon products) stored locally.
+  
+- Have you done a full EDA on all of your data?
+
+  I've done EDA on the Yelp reviews and will probably add some visualizations in the future. I plan on doing EDA on the secondary datasets (users, Amazon) once my primary modeling step is in a good state.
+  
+- Have you begun the modeling process? How accurate are your predictions so far?
+
+  I've setup a pipeline for clustering to obtain features for my predictive models and collected topics for my reviews. I plan on completing the predictive modeling step by the end of the week.
+  
+- What blockers are you facing, including processing power, data acquisition, modeling difficulties, data cleaning, etc.? How can we help you overcome those challenges?
+
+  I've already dealt with many of these issues (mainly the large amount of RAM needed to hold the large text corpora in memory). I may test another NLP module with built-in sentiment modules in conjunction with my topic modeling results.
+
+- What is your timeline for the next week and a half? What do you have to get done versus what would you like to get done?
+
+Have classification/regression models for usefulness for the Yelp reviews done by end of this week. Begin EDA/Viz on secondary datasets on weekend.
+
+Process and evaluate models on secondary goals in Week 12.
