@@ -1,1 +1,0 @@
-LOGIN = 'postgres://postgres:moop@52.25.218.143:5432/capstone'
