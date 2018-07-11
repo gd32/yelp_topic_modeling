@@ -1,4 +1,4 @@
-# Predicting Useful Yelp Review
+# Predicting Useful Yelp Reviews
 
 What makes a useful Yelp review? Can we predict if a review will be useful based on its text content?
 
