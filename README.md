@@ -1,23 +1,22 @@
-# Predicting Useful Yelp Reviews
+# Predicting Useful Yelp Review
 
-What makes a useful Yelp review? What characteristics do reviews have that make them more likely to be seen as useful? Can we use a user's review history to predict how useful their future reviews will be?
+What makes a useful Yelp review? Can we predict if a review will be useful based on its text content?
 
 ## Goals
 
 The primary goals of this project are to:
 
-1) predict the usefulness of Yelp reviews as a classification problem
-2) quantify usefulness of Yelp reviews on a numeric/percentage scale and predict this 'Usefulness' score as a regression problem
-
-I would also like to explore as secondary goals:
-
-1) Application and evaluation of models trained on Yelp review text on review text from other sites 
-2) Assessment of reviews written by prolific Yelp users to predict usefulness of reviews on a per-user basis.
+1) predict the usefulness of Yelp reviews as a classification problem using machine learning models
+2) use topic modeling/decomposition to improve the accuracy of those models
+3) evaluate the effectiveness of the models using Yelp reviews of indeterminate usefulness
 
 ## Technologies Used
 
-* **NLP**: Spacy, Textacy, Linear Dirichlet Allocation (LDA), Latent Semantic Analysis (LSA), non-Negative Matrix Factorization (NMF)
+All statistical analysis was done on either a t2.xlarge or t2.2xlarge AWS EC2 instance.
+
+* **NLP**: [Spacy](https://spacy.io), [Textacy](https://github.com/chartbeat-labs/textacy), [scikit-learn](http://scikit-learn.org/stable/)
     
-* **Modeling**: scikit-learn, statsmodels
+* **Modeling**: [scikit-learn](http://scikit-learn.org/stable/) - Logistic Regression, Random Forests
     
-* **Data Handling** pandas, PostgreSQL
+* **Data Handling**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), PostgreSQL(https://www.postgresql.org/)
+
