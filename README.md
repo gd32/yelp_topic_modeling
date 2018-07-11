@@ -18,5 +18,5 @@ All statistical analysis was done on either a t2.xlarge or t2.2xlarge AWS EC2 in
     
 * **Modeling**: [scikit-learn](http://scikit-learn.org/stable/) - Logistic Regression, Random Forests
     
-* **Data Handling**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), PostgreSQL(https://www.postgresql.org/)
+* **Data Handling**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), [PostgreSQL](https://www.postgresql.org/)
 
