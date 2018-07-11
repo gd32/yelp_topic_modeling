@@ -16,7 +16,7 @@ All statistical analysis was done on either a t2.xlarge or t2.2xlarge AWS EC2 in
 
 * **NLP**: [Spacy](https://spacy.io), [Textacy](https://github.com/chartbeat-labs/textacy), [scikit-learn](http://scikit-learn.org/stable/)
     
-* **Modeling**: [scikit-learn](http://scikit-learn.org/stable/) - Logistic Regression, Random Forests
+* **Modeling**: [scikit-learn](http://scikit-learn.org/stable/) - Logistic Regression, Random Forest Classifier
     
 * **Data Handling**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), [PostgreSQL](https://www.postgresql.org/)
 
