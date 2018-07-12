@@ -8,7 +8,7 @@ The primary goals of this project are to:
 
 1) predict the usefulness of Yelp reviews as a classification problem using machine learning models
 2) use topic modeling/decomposition to improve the accuracy of those models
-3) evaluate the effectiveness of the models using Yelp reviews of indeterminate usefulness
+3) evaluate the effectiveness of the models by assessing the validity of the models' predictions.
 
 ## Technologies Used
 
