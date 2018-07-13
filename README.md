@@ -10,6 +10,10 @@ The primary goals of this project are to:
 2) use topic modeling/decomposition to improve the accuracy of those models
 3) evaluate the effectiveness of the models by assessing the validity of the models' predictions
 
+## Technical Report
+
+An indepth discussion of this project is found in the [technical report])(https://github.com/gd32/DSI_capstone/blob/master/Technical_Report.md).
+
 ## Technologies Used
 
 All statistical analysis was done on either a t2.xlarge or t2.2xlarge AWS EC2 instance.
@@ -19,4 +23,3 @@ All statistical analysis was done on either a t2.xlarge or t2.2xlarge AWS EC2 in
 * **Modeling**: [scikit-learn](http://scikit-learn.org/stable/) - Logistic Regression, Random Forest Classifier
     
 * **Data Handling**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), [PostgreSQL](https://www.postgresql.org/)
-
