@@ -1,10 +1,10 @@
 # Predicting the Usefulness of Yelp Reviews
 
-What makes a useful Yelp review? Can we predict if a review will be useful based on its text content?
+What makes a useful Yelp review? Can we predict if a review will be useful based on its text content? 
 
 ## Goals
 
-The primary goals of this project are to:
+The goals of this project are to:
 
 1) predict the usefulness of Yelp reviews as a classification problem using machine learning models
 2) use topic modeling/decomposition to improve the accuracy of those models
