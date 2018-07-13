@@ -20,8 +20,9 @@ The original review dataset provided by Yelp contained reviews from the followin
 
 The distribution of useful votes is described in the histogram below:
 
-![Useful histogram](https://github.com/gd32/DSI_capstone/blob/master/visuals/useful_dist.png)
-
+<div style="text-align:center">
+<img src="https://github.com/gd32/DSI_capstone/blob/master/visuals/useful_dist.png" alt="drawing" width="800px">
+</div>
 ---
 ### Useful Votes by Category
 
