@@ -1,4 +1,4 @@
-# Predicting Useful Yelp Reviews
+# Predicting the Usefulness of Yelp Reviews
 
 What makes a useful Yelp review? Can we predict if a review will be useful based on its text content?
 
@@ -16,10 +16,10 @@ An indepth discussion of this project is found in the [technical report](https:/
 
 ## Technologies Used
 
-All statistical analysis was done on either a t2.xlarge or t2.2xlarge AWS EC2 instance.
+All statistical analysis was done a t2.2xlarge AWS EC2 instance.
 
 * **NLP**: [Spacy](https://spacy.io), [Textacy](https://github.com/chartbeat-labs/textacy), [scikit-learn](http://scikit-learn.org/stable/)
     
 * **Modeling**: [scikit-learn](http://scikit-learn.org/stable/) - Logistic Regression, Random Forest Classifier
     
-* **Data Handling**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), [PostgreSQL](https://www.postgresql.org/)
+* **Data Management**: [numpy](http://www.numpy.org/), [pandas](https://pandas.pydata.org), [PostgreSQL](https://www.postgresql.org/)
