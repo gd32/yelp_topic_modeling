@@ -20,8 +20,7 @@ The original review dataset provided by Yelp contained reviews from the followin
 
 The distribution of useful votes is described in the histogram below:
 
-![Useful histogram](https://github.com/gd32/DSI_capstone/blob/master/visuals/useful_dist.png)
-
+![Useful dist](https://github.com/gd32/DSI_capstone/blob/master/visuals/useful_dist.png)
 ---
 ### Useful Votes by Category
 
@@ -38,7 +37,7 @@ In both useful and not useful reviews, positive review (4 or 5 star reviews) wer
 ---
 ### Comparing Vote Categories
 
-In comparing useful and funny votes, 3 clusters are apparent:
+In comparing useful and funny votes, 3 vote patterns are apparent:
 
 1. Reviews with a high number of funny votes, but very few useful votes in comparison.
 2. Votes with an equal number of funny and useful votes (suggesting there is a linear relationship between funny and useful votes up to a certain point)
@@ -50,42 +49,59 @@ In contrast to the useful/funny comparison, the useful/cool comparison only show
 
 ![Cool useful](https://github.com/gd32/DSI_capstone/blob/master/visuals/cool_useful.png)
 
-## Topic Modeling
+## NLP and Topic Modeling
+ 
+The review text was prepared for modeling using Spacy and textacy in three stages: preprocessing, tokenization, and vectorization (see below flowchart for example). In the preprocessing stage, reviews were converted to all lowercase and all numbers, URLs, and punctuation marks were removed. In the tokenization stage, reviews were passed through a token filter to remove stop words and short tokens and converted into *documents* which consist of lists of tokens that passed the filter. Lastly, each document was then passed into a term-frequency/inverse-document frequency (tf-idf) vectorizer, resulting in a document-term sparse matrix containing the tf-idf frequency of the top 10,000 features across all documents in the corpus of documents. 
 
-Text features were incorporated into models using Latent Semantic Analysis (LSA). For each review, text was processed and tokenized using Spacy. Each document (a list containing each non-stop word for each review in tokenized form) was then passed into a term-frequency/inverse-document frequency (tf-idf) vectorizer, resulting in a document-term matrix containing the tf-idf frequency of the top 10,000 features across all documents in the corpus of documents. The resulting document-term matrix was then transformed into a document-topic matrix using textacy's LSA topic model (built on sk-learn's truncated SVD module).
+![NLP Flowchart](https://github.com/gd32/DSI_capstone/blob/master/visuals/NLPflow.png)
 
-A sample of the top 20 topics and top 10 terms for the business dataset is show in the below termite plot:
+Topic modeling was performed using Latent Semantic Analysis (LSA) as implemented in both scikit-learn and textacy; due to memory limitations only 325 topics could be generated from the business dataset and 200 topics for the restaurants dataset.
 
-![Business termite](https://github.com/gd32/DSI_capstone/blob/master/visuals/business_termite.png)
+A sample of the top 20 topics and top 20 terms for the business dataset is show in the below termite plot:
 
-High level review features and the topic features were combined into one feature matrix, resulting in 228 features for restaurants and 378 features for businesses.
+![Business termite](https://github.com/gd32/DSI_capstone/blob/master/visuals/business_termite.png) 
+
+A termite plot can be interpreted as follows: topics are on the x-axis at the top of the plot, with unique terms on the y-axis. Larger circles at a topic/term intersection mean that term had a heavier weight for that topic. Color coding shows the relative strength of terms across the highlighted topics; low numbers of highlighted terms for a topic indicate that the topic did not share many terms with the other selected topics.
 
 ## Modeling
 
-From the review metadata, I used the review's stars, the number of funny votes, and the word count of each review in addition to the Yelp-derived categories for each business each review was written for.\
+All statistical analysis was performed on a t2.2xlarge AWS instance.
 
-I propose creating a validation set of our data using the following scheme:
+---
+### Strategy
 
- - Reviews with no useful votes will be classified as not useful (0).
- - Reviews with either 1 or 2 useful votes will be held out as a validation set. 
- - Reviews with at least 3 useful votes will be classified as useful (1).
+I defined the target of my classification models as follows: 
+
+ - Reviews with no useful votes were labeled not useful (0).
+ - Reviews with either 1 or 2 useful votes were held out as a validation set. 
+ - Reviews with 3 or more useful votes were labeled as useful (1).
  
-This approach intends to control for the unknown factor of page/click count influencing the number of votes a review could get, in addition to the algorithm Yelp uses to filter and display reviews on a specific businesses' page. Following the scheme, we believe that having at least three individuals tag a review as 'Useful' is representative of a consensus, whereas reviews with only 1 or 2 votes may or may not be useful. 
+This approach intends to control for the unknown factor of page/click count influencing the number of votes a review could get, in addition to the proprietary algorithm Yelp uses to filter and sort reviews that are displayed on a specific businesses' page. My assumptions are that reviews with 3 or more useful votes represent some consensus among users, whereas having only one vote indicates only one opinion of usefulness and two votes could be the result of two people finidng a review useful for different reasons. Based on this reasoning, I chose to use my chosen model to predict the usefulness of the reviews with 1-2 votes and see what reviews of that subset were predicted as not useful.
 
-For the businesses data, a logistic regression model was trained that classifies Yelp reviews of non-restaurant businesses as useful/not useful with 82.1% accuracy. 
+Features used in modeling were a combination of review metadata and the topic weights for each document. From the review metadata, I used the review's number of stars, the number of funny votes, and the word count of each review in addition to boolean values for the business category (restaurant, active life, health and medical, etc.).
 
-A similar model trained on restaurant reviews classifies such reviews as useful/not useful with *** accuracy.
+---
+### Results
+
+For the businesses data, a logistic regression model was trained that classifies Yelp reviews of non-restaurant businesses as useful or not useful with 82.1% accuracy. 
+
+|             	| precision 	| recall 	| f1-score 	| support 	|
+|-------------	|-----------	|--------	|----------	|---------	|
+| Not useful  	| 0.82      	| 0.94   	| 0.88     	| 679113  	|
+| Useful      	| 0.82      	| 0.55   	| 0.66     	| 308811  	|
+| avg / total 	| 0.82      	| 0.82   	| 0.81     	| 987924  	|
+
+Based on the above classification report, we can see that model has high specificity but low sensitivity, suggesting that our model is more pessimistic about reviews than users. Overall, short 4 or 5 star reviews were more likely to be classified as not useful, likely because they contain little information that can add to their topic weights.
+
+A similar model trained on restaurant reviews classifies those reviews as useful/not useful with 89.6% accuracy.
 
 I also trained a random forest classifier on the businesses dataset which achieved a very similar accuracy score (81.9%). However, this model took approximately 5 times longer to fit than the corresponding logistic regression model (2.5 hours vs 30 mins for the logistic regression).
 
-Evaluation of the logistic regression  model on the held-out non-restaurant businesses suggests that the model identifies short reviews (<4 words) that express one single topic as 'not useful'. However, simple statements that specifically refer to a businesses' products were incorrectly classified.
-
-All statistical analysis was performed on a t2.2xlarge AWS instance.
-
 ## Future Steps
+
+**Improve sensitivity** - Although the model performed well at detecting not useful reviews, it was lacking in its ability to detect truly useful reviews (sensitivity = 0.55). The source of this discrepancy is likely the presence of numerous short reviews which do not have strong topic weights due to their lack of content. It is possible that eliminating reviews shorter than 7 or 8 words could improve the sensitivity of the model. 
 
 **Topic coherence** - While the model using LSA-generated topics as features did quite well at classifying reviews, the topics are relatively weak in terms of human coherence. Latent Dirichlet Allocation (LDA) has been known to generate topics that are both coherent and beneficial in classification problems. Topic coherence can be quantified and compared using various metrics (i.e. UMass, UCI coherence) contained in gensim's coherenceModel.
 
-**Additional classifiers** - Additional, more computationally/time-intensive classifiers could be trained. Of note, support vector classifiers have been shown to perform well in classification tasks utilizing topic model-generated features.
+**Additional classifiers** - Additional, more computationally/time-intensive classifiers could be trained. Of note, support vector classifiers have been shown to perform well in classification tasks utilizing topic model weights.
 
-**Generalization** - The ultimate goal for this topic-based strategy would be to implement such a model that could predict usefulness for unlabeled text reviews to aid business strategy or operation on any review-based platform. 
