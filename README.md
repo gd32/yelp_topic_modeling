@@ -12,7 +12,7 @@ The primary goals of this project are to:
 
 ## Technical Report
 
-An indepth discussion of this project is found in the [technical report])(https://github.com/gd32/DSI_capstone/blob/master/Technical_Report.md).
+An indepth discussion of this project is found in the [technical report](https://github.com/gd32/DSI_capstone/blob/master/Technical_Report.md).
 
 ## Technologies Used
 
