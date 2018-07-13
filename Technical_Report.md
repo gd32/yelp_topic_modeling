@@ -67,6 +67,7 @@ A termite plot can be interpreted as follows: topics are on the x-axis at the to
 
 All statistical analysis was performed on a t2.2xlarge AWS instance.
 
+---
 ### Strategy
 
 I defined the target of my classification models as follows: 
@@ -79,6 +80,7 @@ This approach intends to control for the unknown factor of page/click count infl
 
 Features used in modeling were a combination of review metadata and the topic weights for each document. From the review metadata, I used the review's number of stars, the number of funny votes, and the word count of each review in addition to boolean values for the business category (restaurant, active life, health and medical, etc.).
 
+---
 ### Results
 
 For the businesses data, a logistic regression model was trained that classifies Yelp reviews of non-restaurant businesses as useful or not useful with 82.1% accuracy. 
