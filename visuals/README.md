@@ -1,4 +1,4 @@
-This directory contains visualizations related to the topic modeling strategies used in this project. 
+This directory contains visualizations used in the technical report and in the presentation slides. 
 
 **Termite plots** show the relative weight of terms across selected topics.
 
