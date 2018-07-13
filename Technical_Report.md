@@ -38,7 +38,15 @@ In both useful and not useful reviews, positive review (4 or 5 star reviews) wer
 ---
 ### Comparing Vote Categories
 
+In comparing useful and funny votes, 3 clusters are apparent:
+
+1. Reviews with a high number of funny votes, but very few useful votes in comparison.
+2. Votes with an equal number of funny and useful votes (suggesting there is a linear relationship between funny and useful votes up to a certain point)
+3. Votes with a high number of useful votes, but very few funny votes.
+
 ![Funny useful](https://github.com/gd32/DSI_capstone/blob/master/visuals/funny_useful.png)
+
+In contrast to the useful/funny comparison, the useful/cool comparison only shows two groups of reviews. A group with equal amounts of useful and cool votes up to around 250 votes, and reviews with a high number of useful votes but no cool votes. We see that there are no reviews with many cool votes, but no useful votes.
 
 ![Cool useful](https://github.com/gd32/DSI_capstone/blob/master/visuals/cool_useful.png)
 
