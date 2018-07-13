@@ -37,7 +37,7 @@ In both useful and not useful reviews, positive review (4 or 5 star reviews) wer
 ---
 ### Comparing Vote Categories
 
-In comparing useful and funny votes, 3 clusters are apparent:
+In comparing useful and funny votes, 3 vote patterns are apparent:
 
 1. Reviews with a high number of funny votes, but very few useful votes in comparison.
 2. Votes with an equal number of funny and useful votes (suggesting there is a linear relationship between funny and useful votes up to a certain point)
