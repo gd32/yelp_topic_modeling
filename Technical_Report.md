@@ -31,6 +31,8 @@ As expected, restaurants dominate the review space on Yelp and thus restaurant r
 In comparing reviews with and without useful votes, I found that useful reviews were overall slightly longer than not useful reviews.
 In both useful and not useful reviews, positive review (4 or 5 star reviews) were in general shorter than negative reviews.
 
+The below graph shows the distribution of review length by star rating, divided between reviews with useful votes (yellow) and reviews without useful votes (red).
+
 ![Useful stars](https://github.com/gd32/DSI_capstone/blob/master/visuals/useful_stars.png)
 
 ![Not useful](https://github.com/gd32/DSI_capstone/blob/master/visuals/notuseful_stars.png)
